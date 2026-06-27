@@ -10,7 +10,7 @@ ADMIN_PASSWORD = "superadmin123"
 ADMINS = [123456789] 
 
 # Telegram Web App uchun URL (Sizning yangi serveringiz)
-WEBAPP_URL = "https://twelve-facts-argue.loca.lt"
+WEBAPP_URL = "https://fas-food.onrender.com/"
 
 # Ma'lumotlar bazasi parametrlari
 DB_HOST = "localhost"
