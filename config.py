@@ -1,7 +1,7 @@
 import os
 
 # Bot tokenini shu yerga kiriting (BotFather'dan olingan)
-BOT_TOKEN = "8001673740:AAF1tGGwN4Hm1D7h4nWdVOO7bUrvPBNxA7s"
+BOT_TOKEN = "8485762290:AAECB_dUuXbgDaIub-dKxFWNd9cFAR7IFBw"
 
 # Admin paneli uchun maxsus parol
 ADMIN_PASSWORD = "superadmin123"
@@ -10,7 +10,7 @@ ADMIN_PASSWORD = "superadmin123"
 ADMINS = [123456789] 
 
 # Telegram Web App uchun URL (Sizning yangi serveringiz)
-WEBAPP_URL = "https://fas-food.onrender.com/"
+WEBAPP_URL = "https://fluffy-mails-worry.loca.lt"
 
 # Ma'lumotlar bazasi parametrlari
 DB_HOST = "localhost"

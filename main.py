@@ -2,7 +2,7 @@ import asyncio
 import logging
 import json
 from aiogram import Bot, Dispatcher, F
-from aiogram.filters import CommandStart, Command
+from aiogram.filters import CommandStart, Command, StateFilter
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, WebAppInfo, MenuButtonWebApp, MenuButtonDefault
 from aiogram.enums import ParseMode
@@ -180,13 +180,13 @@ async def back_to_main(message: Message, state: FSMContext):
     await message.answer(get_text(lang, "main_menu"), reply_markup=get_start_keyboard(lang))
 
 # --- ORDER FLOW START ---
-@dp.message(F.text.in_([LANGS["uz"]["kafe"], LANGS["ru"]["kafe"], LANGS["en"]["kafe"]]))
+@dp.message(StateFilter(None), F.text.in_([LANGS["uz"]["kafe"], LANGS["ru"]["kafe"], LANGS["en"]["kafe"]]))
 async def kafe_bino(message: Message, state: FSMContext):
     user = await db.get_user(message.from_user.id)
     lang = user.get('lang', 'uz') if user else 'uz'
     await message.answer(get_text(lang, "choose_loc"), reply_markup=get_kafe_bino_keyboard(lang))
 
-@dp.message(F.text.in_([LANGS["uz"]["xona"], LANGS["ru"]["xona"], LANGS["en"]["xona"]]))
+@dp.message(StateFilter(None), F.text.in_([LANGS["uz"]["xona"], LANGS["ru"]["xona"], LANGS["en"]["xona"]]))
 async def choose_xona(message: Message, state: FSMContext):
     user = await db.get_user(message.from_user.id)
     lang = user.get('lang', 'uz') if user else 'uz'
@@ -203,7 +203,7 @@ async def process_room(message: Message, state: FSMContext):
     await message.answer("Orqaga qaytish uchun:", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
     await message.answer(f"{get_text(lang, 'xona')}: {message.text}.\n\nBuyurtma berish uchun pastdagi <b>🍔 Menyu</b> tugmasini bosing!", reply_markup=get_webapp_keyboard(lang, message.from_user.id))
 
-@dp.message(F.text.in_([LANGS["uz"]["stollar"], LANGS["ru"]["stollar"], LANGS["en"]["stollar"]]))
+@dp.message(StateFilter(None), F.text.in_([LANGS["uz"]["stollar"], LANGS["ru"]["stollar"], LANGS["en"]["stollar"]]))
 async def choose_kafe(message: Message, state: FSMContext):
     user = await db.get_user(message.from_user.id)
     lang = user.get('lang', 'uz') if user else 'uz'
@@ -220,7 +220,7 @@ async def process_table(message: Message, state: FSMContext):
     await message.answer("Orqaga qaytish uchun:", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
     await message.answer(f"{get_text(lang, 'stollar')}: {message.text}.\n\nBuyurtma berish uchun pastdagi <b>🍔 Menyu</b> tugmasini bosing!", reply_markup=get_webapp_keyboard(lang, message.from_user.id))
 
-@dp.message(F.text.in_([LANGS["uz"]["masofaviy"], LANGS["ru"]["masofaviy"], LANGS["en"]["masofaviy"]]))
+@dp.message(StateFilter(None), F.text.in_([LANGS["uz"]["masofaviy"], LANGS["ru"]["masofaviy"], LANGS["en"]["masofaviy"]]))
 async def choose_masofaviy(message: Message, state: FSMContext):
     user = await db.get_user(message.from_user.id)
     lang = user.get('lang', 'uz') if user else 'uz'
@@ -1261,8 +1261,8 @@ async def start_webapp():
     
     # Rasmlar papkasini serve qilish
     images_dir = os.path.join(webapp_dir, 'images')
-    if os.path.exists(images_dir):
-        app.router.add_static('/images', images_dir)
+    os.makedirs(images_dir, exist_ok=True)
+    app.router.add_static('/images', images_dir)
     
     async def api_checkout_handler(request):
         try:
