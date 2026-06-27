@@ -1,0 +1,22 @@
+{
+    "categories": [
+        "🍔 Burgerlar",
+        "🌯 Lavashlar",
+        "🥤 Ichimliklar",
+        "🍟 Sneklar",
+        "🍰 Shirinliklar",
+        "osh"
+    ],
+    "products": [
+        {
+            "id": 4,
+            "name": "oshj",
+            "category": "osh",
+            "description": "os",
+            "price": 4545,
+            "is_active": 1,
+            "emoji": "🍽",
+            "image": "images/AgACAgIAAxkBAAN1aj-nt7oIGv7o7bkHRnUhmakuxoYAAooZaxsxFQABSiIBMU1naLnIAQADAgADeAADPAQ.jpg"
+        }
+    ]
+}
