@@ -200,7 +200,7 @@ async def process_room(message: Message, state: FSMContext):
     lang = user.get('lang', 'uz') if user else 'uz'
     if message.text in [LANGS["uz"]["back"], LANGS["ru"]["back"], LANGS["en"]["back"]]: return await back_to_main(message, state)
     await state.update_data(room_table=message.text)
-    await message.answer("Orqaga qaytish uchun:", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
+    await message.answer("👇", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
     await message.answer(f"{get_text(lang, 'xona')}: {message.text}.\n\nBuyurtma berish uchun pastdagi <b>🍔 Menyu</b> tugmasini bosing!", reply_markup=get_webapp_keyboard(lang, message.from_user.id))
 
 @dp.message(StateFilter(None), F.text.in_([LANGS["uz"]["stollar"], LANGS["ru"]["stollar"], LANGS["en"]["stollar"]]))
@@ -217,7 +217,7 @@ async def process_table(message: Message, state: FSMContext):
     lang = user.get('lang', 'uz') if user else 'uz'
     if message.text in [LANGS["uz"]["back"], LANGS["ru"]["back"], LANGS["en"]["back"]]: return await back_to_main(message, state)
     await state.update_data(room_table=message.text)
-    await message.answer("Orqaga qaytish uchun:", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
+    await message.answer("👇", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
     await message.answer(f"{get_text(lang, 'stollar')}: {message.text}.\n\nBuyurtma berish uchun pastdagi <b>🍔 Menyu</b> tugmasini bosing!", reply_markup=get_webapp_keyboard(lang, message.from_user.id))
 
 @dp.message(StateFilter(None), F.text.in_([LANGS["uz"]["masofaviy"], LANGS["ru"]["masofaviy"], LANGS["en"]["masofaviy"]]))
@@ -225,7 +225,7 @@ async def choose_masofaviy(message: Message, state: FSMContext):
     user = await db.get_user(message.from_user.id)
     lang = user.get('lang', 'uz') if user else 'uz'
     await state.update_data(order_type="Masofaviy", room_table="Yo'q")
-    await message.answer("Orqaga qaytish uchun:", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
+    await message.answer("👇", reply_markup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text=get_text(lang, "back"))]], resize_keyboard=True))
     await message.answer(f"{get_text(lang, 'remote_order')}\n\nBuyurtma berish uchun pastdagi <b>🍔 Menyu</b> tugmasini bosing!", reply_markup=get_webapp_keyboard(lang, message.from_user.id))
 
 # --- COURIER REGISTRATION ---

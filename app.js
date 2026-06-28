@@ -20,7 +20,8 @@ const t = {
         loading_error: "Maxsulotlarni yuklashda xatolik",
         banner_title: "🔥 Olovli Ta'm",
         banner_subtitle: "Siz izlagan maza va sifat!",
-        contact_admin: "Admin bilan aloqa"
+        contact_admin: "Admin bilan aloqa",
+        search: "Mahsulot qidirish..."
     },
     ru: {
         all: "Все",
@@ -30,7 +31,8 @@ const t = {
         loading_error: "Ошибка при загрузке товаров",
         banner_title: "🔥 Огненный Вкус",
         banner_subtitle: "Тот самый вкус и качество!",
-        contact_admin: "Связь с админом"
+        contact_admin: "Связь с админом",
+        search: "Поиск товаров..."
     },
     en: {
         all: "All",
@@ -40,7 +42,8 @@ const t = {
         loading_error: "Error loading products",
         banner_title: "🔥 Fiery Taste",
         banner_subtitle: "The taste and quality you seek!",
-        contact_admin: "Contact Admin"
+        contact_admin: "Contact Admin",
+        search: "Search products..."
     }
 };
 
@@ -53,6 +56,10 @@ document.getElementById('banner_subtitle').innerText = getText('banner_subtitle'
 const adminBtn = document.getElementById('contact_admin_btn');
 if (adminBtn) {
     adminBtn.innerHTML = `<i class="fa-solid fa-shield-halved"></i> ${getText('contact_admin')}`;
+}
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.placeholder = getText('search');
 }
 
 let products = [];
@@ -96,11 +103,22 @@ function filterCategory(category) {
     renderProducts();
 }
 
+let searchQuery = "";
+
+function searchProducts() {
+    searchQuery = document.getElementById('searchInput').value.toLowerCase();
+    renderProducts();
+}
+
 function renderProducts() {
     const container = document.getElementById("products");
     container.innerHTML = "";
     
-    let filtered = currentCategory === getText('all') ? products : products.filter(p => p.category === currentCategory);
+    let filtered = products.filter(p => {
+        let matchCategory = (currentCategory === getText('all') || p.category === currentCategory);
+        let matchSearch = p.name.toLowerCase().includes(searchQuery);
+        return matchCategory && matchSearch;
+    });
     
     filtered.forEach(p => {
         let qty = cart[p.id] || 0;

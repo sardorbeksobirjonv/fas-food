@@ -17,6 +17,16 @@
             "is_active": 1,
             "emoji": "🍽",
             "image": "images/AgACAgIAAxkBAAN1aj-nt7oIGv7o7bkHRnUhmakuxoYAAooZaxsxFQABSiIBMU1naLnIAQADAgADeAADPAQ.jpg"
+        },
+        {
+            "id": 5,
+            "name": "nn",
+            "category": "osh",
+            "description": "non",
+            "price": 40,
+            "is_active": 1,
+            "emoji": "🍽",
+            "image": "images/AgACAgIAAxkBAAIIeGpAqqtDe7oAAWOcuGcCbDYqpUJO7wACfxtrG16mAUovC7kV8NkwUAEAAwIAA3gAAzwE.jpg"
         }
     ]
 }

@@ -13,7 +13,7 @@
             "telegram_id": 7752032178,
             "fullname": "개발자👨🏻‍💻",
             "phone": null,
-            "lang": "ru",
+            "lang": "uz",
             "registered_at": "2026-06-26 12:43"
         },
         "7032024055": {
@@ -35,6 +35,16 @@
             "is_active": 1,
             "emoji": "🍽",
             "image": "images/AgACAgIAAxkBAAN1aj-nt7oIGv7o7bkHRnUhmakuxoYAAooZaxsxFQABSiIBMU1naLnIAQADAgADeAADPAQ.jpg"
+        },
+        {
+            "id": 5,
+            "name": "nn",
+            "category": "osh",
+            "description": "non",
+            "price": 40,
+            "is_active": 1,
+            "emoji": "🍽",
+            "image": "images/AgACAgIAAxkBAAIIeGpAqqtDe7oAAWOcuGcCbDYqpUJO7wACfxtrG16mAUovC7kV8NkwUAEAAwIAA3gAAzwE.jpg"
         }
     ],
     "orders": [
@@ -163,6 +173,54 @@
             "comment": "Yo'q",
             "courier_id": null,
             "created_at": "27.06.2026 18:22"
+        },
+        {
+            "id": 7,
+            "user_id": 7752032178,
+            "total_price": 27270,
+            "location": "Kiritilmagan",
+            "phone": "+998940898119",
+            "status": "Qabul qilindi va tayyorlanmoqda",
+            "items": [
+                {
+                    "id": 4,
+                    "name": "oshj",
+                    "price": 4545,
+                    "quantity": 6
+                }
+            ],
+            "order_type": "Masofaviy",
+            "room_table": "Yo'q",
+            "comment": "Yo'q",
+            "courier_id": null,
+            "created_at": "28.06.2026 10:00"
+        },
+        {
+            "id": 8,
+            "user_id": 7752032178,
+            "total_price": 18380,
+            "location": "40.666064,72.256314",
+            "phone": "998940898119",
+            "status": "Yangi",
+            "items": [
+                {
+                    "id": 4,
+                    "name": "oshj",
+                    "price": 4545,
+                    "quantity": 4
+                },
+                {
+                    "id": 5,
+                    "name": "nn",
+                    "price": 40,
+                    "quantity": 5
+                }
+            ],
+            "order_type": "Masofaviy",
+            "room_table": "Yo'q",
+            "comment": "Yo'q",
+            "courier_id": null,
+            "created_at": "28.06.2026 10:02"
         }
     ],
     "carts": {},
