@@ -10,7 +10,7 @@ ADMIN_PASSWORD = "superadmin123"
 ADMINS = [123456789] 
 
 # Telegram Web App uchun URL (Sizning yangi serveringiz)
-WEBAPP_URL = "https://stale-sites-arrive.loca.lt"
+WEBAPP_URL = "https://sdr.yangi-jadid.uz/"
 
 # Ma'lumotlar bazasi parametrlari
 DB_HOST = "localhost"
